@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default(props) => {
+const Button = (props) => {
   const { value, enabled = true, onClick } = props
 
   const styles = {
@@ -16,3 +17,11 @@ export default(props) => {
     <button style={styles} onClick={handleClick} disabled={!enabled}>{value}</button>
   )
 }
+
+Button.prototype = {
+  value: PropTypes.string,
+  enabled: PropTypes.bool,
+  onClick: PropTypes.func
+}
+
+export default Button
